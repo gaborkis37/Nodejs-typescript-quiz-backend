@@ -3,8 +3,8 @@ import { IUser, User } from "../models/User";
 class UserService {
   async createUser(username: string) {
     try {
-      const currUser = User.findOne({ username });
-
+      const currUser = await User.findOne({ username });
+      console.log(currUser);
       if (!currUser) {
         const user: IUser = new User({ username });
         return await user.save();
