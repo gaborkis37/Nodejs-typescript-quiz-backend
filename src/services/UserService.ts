@@ -17,7 +17,7 @@ class UserService {
   }
 
   async getUsers() {
-    return User.find();
+    return User.find().sort({ allTimeScore: -1 });
   }
 
   async addScoreToUser(userId: string, score: number) {
